@@ -12,22 +12,17 @@
         <!-- 搜索框容器 -->
         <div class="search-wrapper" id="searchWrapper">
             <!-- 未激活透明框（默认显示） -->
-            <div class="search-placeholder" id="searchPlaceholder">
-                <div class="placeholder-outline"></div> <!-- 新增轮廓元素 -->
-            </div>
+            <div class="search-placeholder" id="searchPlaceholder"></div>
             
             <!-- 激活后完整搜索框 -->
             <div class="search-container" id="searchContainer">
-                <!-- 引擎触发容器（扩大触发范围） -->
-                <div class="engine-trigger" id="engineTrigger">
-                    <!-- 引擎切换按钮 -->
-                    <div class="engine-switch" id="engineSwitch">
-                        <i class="fab fa-google" id="engineIcon"></i>
-                    </div>
-                    <!-- 引擎面板 -->
+                <!-- 引擎图标容器 -->
+                <div class="engine-icon-wrapper" id="engineIconWrapper">
+                    <i class="fab fa-google" id="engineIcon"></i>
+                    <!-- 引擎下拉面板 -->
                     <div class="engine-panel" id="enginePanel">
                         <div class="engine-group-title">通用搜索</div>
-                        <div class="engine-item" data-engine="google" data-icon="fab fa-google" data-url="https://www.google.com/search?q=">
+                        <div class="engine-item active" data-engine="google" data-icon="fab fa-google" data-url="https://www.google.com/search?q=">
                             <i class="fab fa-google"></i>
                             <span>Google</span>
                         </div>
@@ -72,8 +67,8 @@
                     </div>
                 </div>
 
-                <!-- 搜索输入框（增加tabindex确保可聚焦） -->
-                <input type="text" class="search-input" id="searchInput" placeholder="请输入搜索内容..." tabindex="1">
+                <!-- 搜索输入框 -->
+                <input type="text" class="search-input" id="searchInput" placeholder="请输入搜索内容...">
                 
                 <!-- 搜索按钮 -->
                 <button class="search-btn" id="searchBtn">
@@ -82,7 +77,7 @@
             </div>
         </div>
 
-        <!-- 卡片区域 -->
+        <!-- 卡片区域（完全保留） -->
         <div class="main-container">
             <div class="category-row">
                 <div class="category-title">视频类</div>
