@@ -75,11 +75,6 @@ body {
     display: flex;
 }
 
-/* 搜索框获得焦点时的视觉效果 */
-.search-container:focus-within {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(66, 133, 244, 0.2);
-}
-
 /* 核心：引擎触发容器（包含图标+面板，扩大hover热区） */
 .engine-trigger {
     position: relative;
@@ -158,6 +153,11 @@ body {
     cursor: pointer;
     transition: all 0.15s ease;
     font-size: 14px;
+    /* 防止被选中 */
+    -webkit-user-select: none;
+    user-select: none;
+    /* 移除焦点轮廓 */
+    outline: none;
 }
 
 .engine-item.active {
@@ -187,13 +187,16 @@ body {
     padding: 0 8px;
     color: #333;
     caret-color: #4285f4;
+    /* 确保可选中文本 */
+    -webkit-user-select: text;
+    user-select: text;
 }
 
 .search-input::placeholder {
     color: #999;
 }
 
-/* 搜索框获得焦点时的样式 */
+/* 搜索框获得焦点时的视觉反馈 */
 .search-input:focus {
     outline: none;
 }
@@ -220,7 +223,7 @@ body {
     color: #4285f4;
 }
 
-/* 卡片区域样式（完全保留） */
+/* 卡片区域样式 */
 .main-container {
     width: 100%;
     display: flex;
@@ -282,7 +285,7 @@ body {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* 图标配色（保留） */
+/* 图标配色 */
 .fa-google { color: #4285f4; }
 .fa-search { color: #0066cc; }
 .fa-paw { color: #2319dc; }
@@ -317,5 +320,18 @@ body {
         width: 100%;
         padding: 0;
         justify-content: center;
+    }
+}
+
+/* Chrome 特定样式修复 */
+@media all and (-webkit-min-device-pixel-ratio:0) {
+    .search-input {
+        /* Chrome 中确保光标显示 */
+        caret-color: #4285f4 !important;
+    }
+    
+    .engine-item {
+        /* 移除Chrome中的蓝色焦点框 */
+        -webkit-tap-highlight-color: transparent;
     }
 }
