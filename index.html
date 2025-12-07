@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>启动页</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- 搜索框容器 -->
+        <div class="search-wrapper" id="searchWrapper">
+            <!-- 未激活透明框（默认显示） -->
+            <div class="search-placeholder" id="searchPlaceholder"></div>
+            
+            <!-- 激活后完整搜索框 -->
+            <div class="search-container" id="searchContainer">
+                <!-- 引擎图标容器（核心：新增 engine-trigger 父容器） -->
+                <div class="engine-trigger" id="engineTrigger">
+                    <div class="engine-icon-wrapper" id="engineIconWrapper">
+                        <i class="fab fa-google" id="engineIcon"></i>
+                    </div>
+                    <!-- 引擎下拉面板 -->
+                    <div class="engine-panel" id="enginePanel">
+                        <div class="engine-group-title">通用搜索</div>
+                        <div class="engine-item active" data-engine="google" data-icon="fab fa-google" data-url="https://www.google.com/search?q=">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </div>
+                        <div class="engine-item" data-engine="bing" data-icon="fas fa-search" data-url="https://cn.bing.com/search?q=">
+                            <i class="fas fa-search"></i>
+                            <span>必应</span>
+                        </div>
+                        <div class="engine-item" data-engine="baidu" data-icon="fas fa-paw" data-url="https://www.baidu.com/s?wd=">
+                            <i class="fas fa-paw"></i>
+                            <span>百度</span>
+                        </div>
+                        <div class="engine-item" data-engine="yandex" data-icon="fab fa-yandex" data-url="https://yandex.com/search/?text=">
+                            <i class="fab fa-yandex"></i>
+                            <span>Yandex</span>
+                        </div>
+                        <div class="engine-item" data-engine="sogou" data-icon="fas fa-dragon" data-url="https://www.sogou.com/web?query=">
+                            <i class="fas fa-dragon"></i>
+                            <span>搜狗</span>
+                        </div>
+
+                        <div class="engine-group-title">平台搜索</div>
+                        <div class="engine-item" data-engine="bilibili" data-icon="fab fa-bilibili" data-url="https://search.bilibili.com/all?keyword=">
+                            <i class="fab fa-bilibili"></i>
+                            <span>哔哩哔哩</span>
+                        </div>
+                        <div class="engine-item" data-engine="youtube" data-icon="fab fa-youtube" data-url="https://www.youtube.com/results?search_query=">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </div>
+                        <div class="engine-item" data-engine="github" data-icon="fab fa-github" data-url="https://github.com/search?q=">
+                            <i class="fab fa-github"></i>
+                            <span>Github</span>
+                        </div>
+                        <div class="engine-item" data-engine="zhihu" data-icon="fab fa-zhihu" data-url="https://www.zhihu.com/search?q=">
+                            <i class="fab fa-zhihu"></i>
+                            <span>知乎</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 搜索输入框 -->
+                <input type="text" class="search-input" id="searchInput" placeholder="请输入搜索内容...">
+                
+                <!-- 搜索按钮 -->
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 卡片区域（完全保留） -->
+        <div class="main-container">
+            <div class="category-row">
+                <div class="category-title">视频类</div>
+                <div class="card-group">
+                    <a href="https://www.youtube.com" target="_blank" class="card">
+                        <i class="fab fa-youtube card-icon"></i>
+                        <span class="card-text">YouTube</span>
+                    </a>
+                    <a href="https://www.bilibili.com" target="_blank" class="card">
+                        <i class="fab fa-bilibili card-icon"></i>
+                        <span class="card-text">bilibili</span>
+                    </a>
+                    <a href="https://www.tiktok.com" target="_blank" class="card">
+                        <i class="fab fa-tiktok card-icon"></i>
+                        <span class="card-text">TikTok</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-row">
+                <div class="category-title">工具类</div>
+                <div class="card-group">
+                    <a href="https://github.com" target="_blank" class="card">
+                        <i class="fab fa-github card-icon"></i>
+                        <span class="card-text">github</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-row">
+                <div class="category-title">常用类</div>
+                <div class="card-group">
+                    <a href="https://www.facebook.com" target="_blank" class="card">
+                        <i class="fab fa-facebook card-icon"></i>
+                        <span class="card-text">facebook</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-row">
+                <div class="category-title">其他类</div>
+                <div class="card-group">
+                    <a href="https://www.youtube.com" target="_blank" class="card">
+                        <i class="fab fa-youtube card-icon"></i>
+                        <span class="card-text">YouTube</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
