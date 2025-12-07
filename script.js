@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchPlaceholder = document.getElementById('searchPlaceholder');
     const searchContainer = document.getElementById('searchContainer');
     const searchInput = document.getElementById('searchInput');
+    const engineTrigger = document.getElementById('engineTrigger'); // 新增父容器
     const engineIconWrapper = document.getElementById('engineIconWrapper');
     const engineIcon = document.getElementById('engineIcon');
     const enginePanel = document.getElementById('enginePanel');
@@ -17,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
         url: 'https://www.google.com/search?q='
     };
 
+    // 新增：面板关闭延迟定时器
+    let panelCloseTimer = null;
+    const PANEL_DELAY = 300; // 300ms 延迟，给鼠标移动留时间
+
     // ========== 初始化 ==========
     // 标记初始选中引擎
     engineItems.forEach(item => {
@@ -24,6 +29,30 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.add('active');
         }
     });
+
+    // ========== 新增：引擎面板延迟关闭逻辑 ==========
+    // 鼠标进入触发容器/面板：清除延迟，显示面板
+    function showEnginePanel() {
+        clearTimeout(panelCloseTimer);
+        enginePanel.style.opacity = '1';
+        enginePanel.style.visibility = 'visible';
+        enginePanel.style.pointerEvents = 'auto';
+    }
+
+    // 鼠标离开触发容器/面板：延迟关闭面板
+    function hideEnginePanel() {
+        panelCloseTimer = setTimeout(() => {
+            enginePanel.style.opacity = '0';
+            enginePanel.style.visibility = 'hidden';
+            enginePanel.style.pointerEvents = 'none';
+        }, PANEL_DELAY);
+    }
+
+    // 绑定面板显隐事件（核心修复）
+    engineTrigger.addEventListener('mouseenter', showEnginePanel);
+    engineTrigger.addEventListener('mouseleave', hideEnginePanel);
+    enginePanel.addEventListener('mouseenter', showEnginePanel); // 鼠标进入面板也保持显示
+    enginePanel.addEventListener('mouseleave', hideEnginePanel);
 
     // ========== 搜索框激活/失焦逻辑 ==========
     // 点击默认面板激活搜索框
@@ -37,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!searchInput.value.trim()) {
             setTimeout(() => {
                 // 确保鼠标不在引擎面板上
-                if (!enginePanel.matches(':hover')) {
+                if (!enginePanel.matches(':hover') && !engineTrigger.matches(':hover')) {
                     searchWrapper.classList.remove('active');
                 }
             }, 200);
@@ -49,6 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const isClickInside = searchWrapper.contains(e.target);
         if (!isClickInside && !searchInput.value.trim()) {
             searchWrapper.classList.remove('active');
+            // 同时关闭引擎面板
+            clearTimeout(panelCloseTimer);
+            enginePanel.style.opacity = '0';
+            enginePanel.style.visibility = 'hidden';
+            enginePanel.style.pointerEvents = 'none';
         }
     });
 
@@ -65,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== 引擎切换逻辑（切换后保持焦点） ==========
     engineItems.forEach(item => {
         item.addEventListener('click', function() {
+            // 清除面板关闭定时器
+            clearTimeout(panelCloseTimer);
+            
             // 移除所有选中状态
             engineItems.forEach(ele => ele.classList.remove('active'));
             // 标记当前选中
@@ -86,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             focusSearchInput();
 
             // 关闭引擎面板
-            enginePanel.style.opacity = 0;
+            enginePanel.style.opacity = '0';
             enginePanel.style.visibility = 'hidden';
             enginePanel.style.pointerEvents = 'none';
         });
