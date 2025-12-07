@@ -8,13 +8,13 @@
 
 /* 页面基础样式 */
 body {
-    background: url('image/background.heic') center/cover fixed no-repeat;
+    background: url('image/background.png') center/cover fixed no-repeat;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(0px);
 }
 
 /* 内容容器 */
