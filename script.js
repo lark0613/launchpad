@@ -60,6 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // 点击页面其他区域关闭搜索框
+    document.addEventListener('click', function(e) {
+        const isClickInside = searchWrapper.contains(e.target);
+        if (!isClickInside && !searchInput.value.trim()) {
+            searchWrapper.classList.remove('active');
+            enginePanel.classList.remove('active');
+        }
+    });
+
     // ========== 通用聚焦函数（核心修复） ==========
     function focusSearchInput() {
         // 方案1：基础聚焦
