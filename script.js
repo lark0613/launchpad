@@ -94,11 +94,16 @@ document.addEventListener('DOMContentLoaded', function () {
         searchInput.setSelectionRange(searchInput.value.length, searchInput.value.length);
         // 主动触发聚焦事件
         searchInput.dispatchEvent(new Event('focus', { bubbles: true }));
+        // 触发input事件帮助Chrome激活输入法
+        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
     }
 
-    // 引擎切换逻辑（切换后保持焦点）
+    // ========== 引擎切换逻辑（切换后保持焦点）- 修复Chrome焦点问题 ==========
     engineItems.forEach(item => {
-        item.addEventListener('click', function () {
+        item.addEventListener('click', function (e) {
+            e.preventDefault(); // 阻止默认行为
+            e.stopPropagation(); // 阻止事件冒泡
+
             // 清除面板关闭定时器
             clearTimeout(panelCloseTimer);
 
@@ -119,14 +124,35 @@ document.addEventListener('DOMContentLoaded', function () {
             // 匹配图标颜色
             engineIcon.style.color = getComputedStyle(this.querySelector('i')).color;
 
-            // 增强版焦点锁定 - 解决Chrome焦点丢失问题
-            setTimeout(() => {
-                focusSearchInput();
-                // 额外添加一个焦点触发，确保Chrome能正确获取焦点
-                if (document.activeElement !== searchInput) {
-                    searchInput.focus();
+            // **核心修复：在Chrome中强制保持焦点**
+            // 先保存当前焦点状态
+            const wasFocused = document.activeElement === searchInput;
+            const hadValue = searchInput.value.trim().length > 0;
+            
+            // 立即请求动画帧来确保DOM更新后执行
+            requestAnimationFrame(() => {
+                // 如果之前是聚焦状态，或者搜索框有内容，强制重新聚焦
+                if (wasFocused || hadValue) {
+                    // 使用setTimeout确保在浏览器事件循环的下一个周期执行
+                    setTimeout(() => {
+                        focusSearchInput();
+                        // 双重保障：如果焦点不在搜索框，再次尝试
+                        if (document.activeElement !== searchInput) {
+                            searchInput.focus();
+                            // 再次触发事件确保输入法状态
+                            setTimeout(() => {
+                                searchInput.dispatchEvent(new Event('focus', { bubbles: true }));
+                                searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                            }, 20);
+                        }
+                    }, 10);
+                } else {
+                    // 如果没有焦点也没有内容，也要确保搜索框可聚焦
+                    setTimeout(() => {
+                        searchInput.focus();
+                    }, 10);
                 }
-            }, 0);
+            });
 
             // 关闭引擎面板
             enginePanel.style.opacity = '0';
@@ -143,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
             window.open(searchUrl, '_blank');
             // 清空内容但保持焦点
             searchInput.value = '';
-            focusSearchInput();
+            setTimeout(focusSearchInput, 50);
         }
     }
 
@@ -155,6 +181,21 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.key === 'Enter') {
             e.preventDefault();
             doSearch();
+        }
+    });
+
+    // ========== 添加全局焦点检查 ==========
+    // 页面可见性变化时检查焦点
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden && searchWrapper.classList.contains('active')) {
+            setTimeout(focusSearchInput, 100);
+        }
+    });
+
+    // 页面获得焦点时的检查
+    window.addEventListener('focus', function() {
+        if (searchWrapper.classList.contains('active')) {
+            setTimeout(focusSearchInput, 50);
         }
     });
 

@@ -75,6 +75,11 @@ body {
     display: flex;
 }
 
+/* 搜索框获得焦点时的视觉效果 */
+.search-container:focus-within {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
 /* 核心：引擎触发容器（包含图标+面板，扩大hover热区） */
 .engine-trigger {
     position: relative;
@@ -186,6 +191,11 @@ body {
 
 .search-input::placeholder {
     color: #999;
+}
+
+/* 搜索框获得焦点时的样式 */
+.search-input:focus {
+    outline: none;
 }
 
 /* 搜索按钮 */
