@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 核心元素获取
     const searchWrapper = document.getElementById('searchWrapper');
     const searchPlaceholder = document.getElementById('searchPlaceholder');
@@ -56,13 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== 搜索框激活/失焦逻辑 ==========
     // 点击默认面板激活搜索框
-    searchPlaceholder.addEventListener('click', function() {
+    searchPlaceholder.addEventListener('click', function () {
         searchWrapper.classList.add('active');
         focusSearchInput(); // 强制聚焦
     });
 
     // 输入框失焦且无内容时，恢复默认面板
-    searchInput.addEventListener('blur', function() {
+    searchInput.addEventListener('blur', function () {
         if (!searchInput.value.trim()) {
             setTimeout(() => {
                 // 确保鼠标不在引擎面板上
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 点击页面其他区域关闭搜索框
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         const isClickInside = searchWrapper.contains(e.target);
         if (!isClickInside && !searchInput.value.trim()) {
             searchWrapper.classList.remove('active');
@@ -96,17 +96,17 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.dispatchEvent(new Event('focus', { bubbles: true }));
     }
 
-    // ========== 引擎切换逻辑（切换后保持焦点） ==========
+    // 引擎切换逻辑（切换后保持焦点）
     engineItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             // 清除面板关闭定时器
             clearTimeout(panelCloseTimer);
-            
+
             // 移除所有选中状态
             engineItems.forEach(ele => ele.classList.remove('active'));
             // 标记当前选中
             this.classList.add('active');
-            
+
             // 更新引擎配置
             currentEngine = {
                 name: this.dataset.engine,
@@ -119,8 +119,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // 匹配图标颜色
             engineIcon.style.color = getComputedStyle(this.querySelector('i')).color;
 
-            // 核心：切换后立即聚焦搜索框（保证输入法焦点不丢失）
-            focusSearchInput();
+            // 增强版焦点锁定 - 解决Chrome焦点丢失问题
+            setTimeout(() => {
+                focusSearchInput();
+                // 额外添加一个焦点触发，确保Chrome能正确获取焦点
+                if (document.activeElement !== searchInput) {
+                    searchInput.focus();
+                }
+            }, 0);
 
             // 关闭引擎面板
             enginePanel.style.opacity = '0';
@@ -145,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     searchBtn.addEventListener('click', doSearch);
 
     // 回车搜索
-    searchInput.addEventListener('keydown', function(e) {
+    searchInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
             e.preventDefault();
             doSearch();
@@ -157,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryRows.forEach((row, index) => {
         row.style.opacity = '0';
         row.style.transform = 'translateY(20px)';
-        
-        setTimeout(function() {
+
+        setTimeout(function () {
             row.style.transition = 'all 0.5s ease';
             row.style.opacity = '1';
             row.style.transform = 'translateY(0)';
@@ -167,10 +173,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 卡片点击反馈
     const cards = document.querySelectorAll('.card');
-    cards.forEach(function(card) {
-        card.addEventListener('click', function() {
+    cards.forEach(function (card) {
+        card.addEventListener('click', function () {
             card.style.transform = 'scale(0.95)';
-            setTimeout(function() {
+            setTimeout(function () {
                 card.style.transform = 'scale(1.05)';
             }, 100);
         });
