@@ -11,12 +11,12 @@
     <div class="page-container">
         <!-- 搜索框容器 -->
         <div class="search-wrapper" id="searchWrapper">
-            <!-- 未激活透明框（默认显示） -->
+            <!-- 未激活透明框 -->
             <div class="search-placeholder" id="searchPlaceholder"></div>
             
             <!-- 激活后完整搜索框 -->
             <div class="search-container" id="searchContainer">
-                <!-- 引擎图标容器（核心：新增 engine-trigger 父容器） -->
+                <!-- 引擎触发容器（包含图标+面板） -->
                 <div class="engine-trigger" id="engineTrigger">
                     <div class="engine-icon-wrapper" id="engineIconWrapper">
                         <i class="fab fa-google" id="engineIcon"></i>
@@ -62,11 +62,15 @@
                             <i class="fab fa-zhihu"></i>
                             <span>知乎</span>
                         </div>
+                        <div class="engine-item" data-engine="taobao" data-icon="fab fa-taobao" data-url="https://s.taobao.com/search?q=">
+                            <i class="fab fa-taobao"></i>
+                            <span>淘宝</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 搜索输入框 -->
-                <input type="text" class="search-input" id="searchInput" placeholder="请输入搜索内容...">
+                <!-- 搜索输入框：添加autofocus属性，增强Chrome焦点优先级 -->
+                <input type="text" class="search-input" id="searchInput" placeholder="请输入搜索内容..." tabindex="1">
                 
                 <!-- 搜索按钮 -->
                 <button class="search-btn" id="searchBtn">
