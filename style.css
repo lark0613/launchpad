@@ -1,0 +1,119 @@
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 背景图+玻璃拟态基础（修改路径为本地 image/background.heic） */
+body {
+    /* 关键修改：背景图路径改为同目录下的 image/background.heic */
+    background: url('image/background.heic') center/cover fixed no-repeat;
+    min-height: 100vh;
+    /* 垂直+水平居中核心 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    backdrop-filter: blur(2px);
+}
+
+/* 主容器 */
+.main-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 分类行（白色透明玻璃效果） */
+.category-row {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 10px 0;
+}
+
+/* 分类标题（易分辨深色字体） */
+.category-title {
+    width: 120px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a202c; /* 深灰黑色，清晰易辨 */
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 8px 0;
+}
+
+/* 卡片组 */
+.card-group {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+/* 卡片（淡蓝色玻璃效果+自适应宽度） */
+.card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(138, 180, 248, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #1a202c; /* 深灰黑色，清晰易辨 */
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 卡片悬浮效果 */
+.card:hover {
+    background: rgba(138, 180, 248, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 卡片图标 */
+.card-icon {
+    font-size: 18px;
+}
+
+/* 平台图标深色配色（增强辨识度） */
+.fa-youtube { color: #d62828; }
+.fa-bilibili { color: #e63946; }
+.fa-tiktok { color: #000000; }
+.fa-github { color: #171515; }
+.fa-facebook { color: #0e6aea; }
+
+/* 移动端适配 */
+@media (max-width: 600px) {
+    .category-row {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+    .category-title {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        padding-bottom: 8px;
+        margin-bottom: 5px;
+    }
+    .card-group {
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+    }
+}
