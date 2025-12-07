@@ -3,123 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>启动页</title>
+    <title>启动页 - 多功能搜索导航</title>
+    <!-- 使用Font Awesome图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入自定义样式 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 主页面容器 -->
     <div class="page-container">
-        <!-- 搜索框容器 -->
+        <!-- 搜索功能区域 -->
         <div class="search-wrapper" id="searchWrapper">
-            <!-- 未激活透明框（默认显示） -->
-            <div class="search-placeholder" id="searchPlaceholder"></div>
+            <!-- 默认搜索面板（未激活状态） -->
+            <div class="search-placeholder" id="searchPlaceholder" 
+                 role="button" 
+                 aria-label="点击激活搜索框"
+                 title="点击开始搜索"></div>
             
-            <!-- 激活后完整搜索框 -->
+            <!-- 完整搜索框（激活后显示） -->
             <div class="search-container" id="searchContainer">
-                <!-- 引擎图标容器（核心：新增 engine-trigger 父容器） -->
-                <div class="engine-trigger" id="engineTrigger">
-                    <div class="engine-icon-wrapper" id="engineIconWrapper">
-                        <i class="fab fa-google" id="engineIcon"></i>
+                <!-- 搜索引擎切换区域 -->
+                <div class="engine-trigger" id="engineTrigger" aria-haspopup="true" aria-expanded="false">
+                    <!-- 当前引擎图标 -->
+                    <div class="engine-icon-wrapper" id="engineIconWrapper" 
+                         role="button"
+                         aria-label="切换搜索引擎"
+                         title="切换搜索引擎">
+                        <i class="fab fa-google" id="engineIcon" aria-hidden="true"></i>
                     </div>
-                    <!-- 引擎下拉面板 -->
-                    <div class="engine-panel" id="enginePanel">
-                        <div class="engine-group-title">通用搜索</div>
-                        <div class="engine-item active" data-engine="google" data-icon="fab fa-google" data-url="https://www.google.com/search?q=">
-                            <i class="fab fa-google"></i>
+                    
+                    <!-- 搜索引擎下拉面板 -->
+                    <div class="engine-panel" id="enginePanel" role="menu" aria-label="搜索引擎选择">
+                        <!-- 通用搜索引擎组 -->
+                        <div class="engine-group-title" role="presentation">通用搜索</div>
+                        <div class="engine-item active" 
+                             role="menuitemradio" 
+                             aria-checked="true"
+                             data-engine="google" 
+                             data-icon="fab fa-google" 
+                             data-url="https://www.google.com/search?q=">
+                            <i class="fab fa-google" aria-hidden="true"></i>
                             <span>Google</span>
                         </div>
-                        <div class="engine-item" data-engine="bing" data-icon="fas fa-search" data-url="https://cn.bing.com/search?q=">
-                            <i class="fas fa-search"></i>
+                        <div class="engine-item" 
+                             role="menuitemradio" 
+                             aria-checked="false"
+                             data-engine="bing" 
+                             data-icon="fas fa-search" 
+                             data-url="https://cn.bing.com/search?q=">
+                            <i class="fas fa-search" aria-hidden="true"></i>
                             <span>必应</span>
                         </div>
-                        <div class="engine-item" data-engine="baidu" data-icon="fas fa-paw" data-url="https://www.baidu.com/s?wd=">
-                            <i class="fas fa-paw"></i>
+                        <div class="engine-item" 
+                             role="menuitemradio" 
+                             aria-checked="false"
+                             data-engine="baidu" 
+                             data-icon="fas fa-paw" 
+                             data-url="https://www.baidu.com/s?wd=">
+                            <i class="fas fa-paw" aria-hidden="true"></i>
                             <span>百度</span>
                         </div>
-                        <div class="engine-item" data-engine="yandex" data-icon="fab fa-yandex" data-url="https://yandex.com/search/?text=">
-                            <i class="fab fa-yandex"></i>
+                        <div class="engine-item" 
+                             role="menuitemradio" 
+                             aria-checked="false"
+                             data-engine="yandex" 
+                             data-icon="fab fa-yandex" 
+                             data-url="https://yandex.com/search/?text=">
+                            <i class="fab fa-yandex" aria-hidden="true"></i>
                             <span>Yandex</span>
                         </div>
-                        <div class="engine-item" data-engine="sogou" data-icon="fas fa-dragon" data-url="https://www.sogou.com/web?query=">
-                            <i class="fas fa-dragon"></i>
+                        <div class="engine-item" 
+                             role="menuitemradio" 
+                             aria-checked="false"
+                             data-engine="sogou" 
+                             data-icon="fas fa-dragon" 
+                             data-url="https://www.sogou.com/web?query=">
+                            <i class="fas fa-dragon" aria-hidden="true"></i>
                             <span>搜狗</span>
                         </div>
 
-                        <div class="engine-group-title">平台搜索</div>
-                        <div class="engine-item" data-engine="bilibili" data-icon="fab fa-bilibili" data-url="https://search.bilibili.com/all?keyword=">
-                            <i class="fab fa-bilibili"></i>
+                        <!-- 平台搜索引擎组 -->
+                        <div class="engine-group-title" role="presentation">平台搜索</div>
+                        <div class="engine-item" 
+                             role="menuitemradio" 
+                             aria-checked="false"
+                             data-engine="bilibili" 
+                             data-icon="fab fa-bilibili" 
+                             data-url="https://search.bilibili.com/all?keyword=">
+                            <i class="fab fa-bilibili" aria-hidden="true"></i>
                             <span>哔哩哔哩</span>
                         </div>
-                        <div class="engine-item" data-engine="youtube" data-icon="fab fa-youtube" data-url="https://www.youtube.com/results?search_query=">
-                            <i class="fab fa-youtube"></i>
+                        <div class="engine-item" 
+                             role="menuitemradio" 
+                             aria-checked="false"
+                             data-engine="youtube" 
+                             data-icon="fab fa-youtube" 
+                             data-url="https://www.youtube.com/results?search_query=">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
                             <span>YouTube</span>
                         </div>
-                        <div class="engine-item" data-engine="github" data-icon="fab fa-github" data-url="https://github.com/search?q=">
-                            <i class="fab fa-github"></i>
+                        <div class="engine-item" 
+                             role="menuitemradio" 
+                             aria-checked="false"
+                             data-engine="github" 
+                             data-icon="fab fa-github" 
+                             data-url="https://github.com/search?q=">
+                            <i class="fab fa-github" aria-hidden="true"></i>
                             <span>Github</span>
                         </div>
-                        <div class="engine-item" data-engine="zhihu" data-icon="fab fa-zhihu" data-url="https://www.zhihu.com/search?q=">
-                            <i class="fab fa-zhihu"></i>
+                        <div class="engine-item" 
+                             role="menuitemradio" 
+                             aria-checked="false"
+                             data-engine="zhihu" 
+                             data-icon="fab fa-zhihu" 
+                             data-url="https://www.zhihu.com/search?q=">
+                            <i class="fab fa-zhihu" aria-hidden="true"></i>
                             <span>知乎</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- 搜索输入框 -->
-                <input type="text" class="search-input" id="searchInput" placeholder="请输入搜索内容..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                <input type="text" 
+                       class="search-input" 
+                       id="searchInput" 
+                       placeholder="请输入搜索内容..." 
+                       autocomplete="off" 
+                       autocorrect="off" 
+                       autocapitalize="off" 
+                       spellcheck="false"
+                       aria-label="搜索输入框"
+                       enterkeyhint="search">
                 
                 <!-- 搜索按钮 -->
-                <button class="search-btn" id="searchBtn">
-                    <i class="fas fa-search"></i>
+                <button class="search-btn" 
+                        id="searchBtn" 
+                        type="button"
+                        aria-label="执行搜索"
+                        title="搜索">
+                    <i class="fas fa-search" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
 
-        <!-- 卡片区域 -->
+        <!-- 快捷卡片区域 -->
         <div class="main-container">
+            <!-- 视频类网站 -->
             <div class="category-row">
                 <div class="category-title">视频类</div>
                 <div class="card-group">
-                    <a href="https://www.youtube.com" target="_blank" class="card">
-                        <i class="fab fa-youtube card-icon"></i>
+                    <a href="https://www.youtube.com" 
+                       target="_blank" 
+                       class="card"
+                       rel="noopener noreferrer"
+                       aria-label="访问YouTube">
+                        <i class="fab fa-youtube card-icon" aria-hidden="true"></i>
                         <span class="card-text">YouTube</span>
                     </a>
-                    <a href="https://www.bilibili.com" target="_blank" class="card">
-                        <i class="fab fa-bilibili card-icon"></i>
+                    <a href="https://www.bilibili.com" 
+                       target="_blank" 
+                       class="card"
+                       rel="noopener noreferrer"
+                       aria-label="访问哔哩哔哩">
+                        <i class="fab fa-bilibili card-icon" aria-hidden="true"></i>
                         <span class="card-text">bilibili</span>
                     </a>
-                    <a href="https://www.tiktok.com" target="_blank" class="card">
-                        <i class="fab fa-tiktok card-icon"></i>
+                    <a href="https://www.tiktok.com" 
+                       target="_blank" 
+                       class="card"
+                       rel="noopener noreferrer"
+                       aria-label="访问TikTok">
+                        <i class="fab fa-tiktok card-icon" aria-hidden="true"></i>
                         <span class="card-text">TikTok</span>
                     </a>
                 </div>
             </div>
 
+            <!-- 工具类网站 -->
             <div class="category-row">
                 <div class="category-title">工具类</div>
                 <div class="card-group">
-                    <a href="https://github.com" target="_blank" class="card">
-                        <i class="fab fa-github card-icon"></i>
+                    <a href="https://github.com" 
+                       target="_blank" 
+                       class="card"
+                       rel="noopener noreferrer"
+                       aria-label="访问GitHub">
+                        <i class="fab fa-github card-icon" aria-hidden="true"></i>
                         <span class="card-text">github</span>
                     </a>
                 </div>
             </div>
 
+            <!-- 常用类网站 -->
             <div class="category-row">
                 <div class="category-title">常用类</div>
                 <div class="card-group">
-                    <a href="https://www.facebook.com" target="_blank" class="card">
-                        <i class="fab fa-facebook card-icon"></i>
+                    <a href="https://www.facebook.com" 
+                       target="_blank" 
+                       class="card"
+                       rel="noopener noreferrer"
+                       aria-label="访问Facebook">
+                        <i class="fab fa-facebook card-icon" aria-hidden="true"></i>
                         <span class="card-text">facebook</span>
                     </a>
                 </div>
             </div>
 
+            <!-- 其他类网站 -->
             <div class="category-row">
                 <div class="category-title">其他类</div>
                 <div class="card-group">
-                    <a href="https://www.youtube.com" target="_blank" class="card">
-                        <i class="fab fa-youtube card-icon"></i>
+                    <a href="https://www.youtube.com" 
+                       target="_blank" 
+                       class="card"
+                       rel="noopener noreferrer"
+                       aria-label="访问YouTube">
+                        <i class="fab fa-youtube card-icon" aria-hidden="true"></i>
                         <span class="card-text">YouTube</span>
                     </a>
                 </div>
@@ -127,6 +226,7 @@
         </div>
     </div>
 
+    <!-- 引入JavaScript文件 -->
     <script src="script.js"></script>
 </body>
 </html>
