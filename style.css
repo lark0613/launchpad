@@ -404,6 +404,41 @@ body {
 }
 
 /* ========== 图标颜色定义 ========== */
+/* 通用搜索引擎 */
+.fa-google { color: #4285f4; }      /* Google蓝色 */
+.fa-search { color: #0066cc; }      /* 必应蓝色 */
+.fa-paw { color: #2319dc; }         /* 百度深蓝色 */
+.fa-yandex { color: #ff0000; }      /* Yandex红色 */
+.fa-dragon { color: #ee3424; }      /* 搜狗红色 */
+.fa-shield-halved { color: #009933; }/* 360搜索绿色 */
+.fa-yahoo { color: #720e9e; }       /* Yahoo紫色 */
+.fa-feather { color: #de5833; }     /* DuckDuckGo橙色 */
+
+/* 平台搜索 - 视频类 */
+.fa-bilibili { color: #fb7299; }    /* B站粉色 */
+.fa-youtube { color: #ff0000; }     /* YouTube红色 */
+.fa-tiktok { color: #000000; }      /* TikTok/抖音黑色 */
+.fa-netflix { color: #E50914; }     /* Netflix红色 */
+
+/* 平台搜索 - 社交/内容类 */
+.fa-github { color: #171515; }      /* GitHub黑色 */
+.fa-zhihu { color: #0084ff; }       /* 知乎蓝色 */
+.fa-book-open { color: #FE2C55; }   /* 小红书红色 */
+.fa-weibo { color: #E6162D; }       /* 微博红色 */
+
+/* 平台搜索 - 购物类 */
+.fa-cart-shopping { color: #ff4400; }/* 淘宝橙色 */
+.fa-truck-fast { color: #E6162D; }  /* 京东红色 */
+.fa-amazon { color: #FF9900; }      /* Amazon橙色 */
+
+/* 平台搜索 - 音乐类 */
+.fa-headphones { color: #FE2C55; }  /* 网易云音乐红色 */
+.fa-spotify { color: #1DB954; }     /* Spotify绿色 */
+
+/* 平台搜索 - 办公/工具类 */
+.fa-square-n { color: #2E3440; }    /* Notion深灰色 */
+
+/* ========== 图标颜色定义 ========== */
 /* 搜索引擎类 */
 .fa-google { color: #4285f4; }      /* Google蓝色 */
 .fa-search { color: #0066cc; }      /* 必应蓝色 */
