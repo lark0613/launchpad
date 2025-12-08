@@ -404,18 +404,78 @@ body {
 }
 
 /* ========== 图标颜色定义 ========== */
+/* 搜索引擎类 */
 .fa-google { color: #4285f4; }      /* Google蓝色 */
 .fa-search { color: #0066cc; }      /* 必应蓝色 */
 .fa-paw { color: #2319dc; }         /* 百度深蓝色 */
 .fa-yandex { color: #ff0000; }      /* Yandex红色 */
 .fa-dragon { color: #ee3424; }      /* 搜狗红色 */
+
+/* 视频类 */
 .fa-bilibili { color: #fb7299; }    /* B站粉色 */
 .fa-youtube { color: #ff0000; }     /* YouTube红色 */
-.fa-github { color: #171515; }      /* GitHub黑色 */
-.fa-zhihu { color: #0084ff; }       /* 知乎蓝色 */
-.fa-taobao { color: #ff4400; }      /* 淘宝橙色 */
+.fa-netflix { color: #E50914; }     /* Netflix红色 */
+.fa-twitch { color: #9146FF; }      /* Twitch紫色 */
 .fa-tiktok { color: #000000; }      /* TikTok黑色 */
+.fa-clapperboard { color: #00A8E1; }/* 腾讯视频蓝色 */
+
+/* 社交类 */
 .fa-facebook { color: #1d3557; }    /* Facebook深蓝色 */
+.fa-instagram { color: #E4405F; }   /* Instagram玫红色 */
+.fa-x-twitter { color: #1DA1F2; }   /* Twitter(X)蓝色 */
+.fa-telegram { color: #26A5E4; }    /* Telegram浅蓝色 */
+.fa-whatsapp { color: #25D366; }    /* WhatsApp绿色 */
+.fa-zhihu { color: #0084ff; }       /* 知乎蓝色 */
+.fa-book-open { color: #FE2C55; }   /* 小红书红色 */
+.fa-weibo { color: #E6162D; }       /* 微博红色 */
+
+/* 音乐类 */
+.fa-spotify { color: #1DB954; }     /* Spotify绿色 */
+.fa-apple { color: #000000; }       /* Apple Music黑色 */
+.fa-headphones { color: #FE2C55; }  /* 网易云音乐红色 */
+.fa-qq { color: #12B7F5; }          /* QQ音乐蓝色 */
+.fa-guitar { color: #FE8F00; }      /* 酷狗音乐橙色 */
+
+/* 工具类 */
+.fa-github { color: #171515; }      /* GitHub黑色 */
+.fa-square-n { color: #2E3440; }    /* Notion深灰色 */
+.fa-microsoft { color: #00A4EF; }   /* Microsoft 365蓝色 */
+.fa-bell { color: #2780E3; }        /* 钉钉蓝色 */
+.fa-file-word { color: #0078D4; }   /* 腾讯文档蓝色 */
+.fa-paper-plane { color: #2563EB; } /* 飞书蓝色 */
+
+/* 购物类 */
+.fa-amazon { color: #FF9900; }      /* Amazon橙色 */
+.fa-store { color: #E5352A; }       /* eBay红色 */
+.fa-taobao { color: #ff4400; }      /* 淘宝橙色 */
+.fa-truck-fast { color: #E6162D; }  /* 京东红色 */
+.fa-cart-shopping { color: #FF6700; }/* 淘宝购物车橙色 */
+.fa-utensils { color: #FFD100; }    /* 美团黄色 */
+
+/* 出行/生活类 */
+.fa-google-maps { color: #4285F4; } /* Google Maps蓝色 */
+.fa-house-chimney { color: #FF5A5F; }/* Airbnb红色 */
+.fa-map-location-dot { color: #41A62A; }/* 高德地图绿色 */
+.fa-taxi { color: #00C2FF; }        /* 滴滴出行蓝色 */
+
+/* 云存储类 */
+.fa-google-drive { color: #4285F4; }/* Google Drive蓝色 */
+.fa-dropbox { color: #0061FF; }     /* Dropbox蓝色 */
+.fa-cloud { color: #2D84FF; }       /* 百度网盘蓝色 */
+.fa-database { color: #FF6A00; }    /* 阿里云盘橙色 */
+
+/* 游戏类 */
+.fa-steam { color: #1B2838; }       /* Steam深灰色 */
+.fa-playstation { color: #003791; } /* PlayStation蓝色 */
+.fa-gamepad { color: #00A8E1; }     /* 腾讯游戏蓝色 */
+.fa-xbox { color: #107C10; }        /* Xbox绿色 */
+
+/* 邮箱类 */
+.fa-envelope { color: #FF6900; }    /* 网易邮箱橙色 */
+.fa-globe { color: #BB0000; }       /* BBC News红色 */
+.fa-newspaper { color: #FF6700; }   /* 今日头条橙色 */
+.fa-pen-to-square { color: #0084FF; }/* 澎湃新闻蓝色 */
+.fa-tower-broadcast { color: #FF0000; }/* CNN红色 */
 
 /* ========== 移动端响应式设计 ========== */
 @media (max-width: 600px) {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,77 +11,54 @@
     <!-- 引入自定义样式 -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- 主页面容器 -->
     <div class="page-container">
         <!-- 搜索功能区域 -->
         <div class="search-wrapper" id="searchWrapper">
             <!-- 默认搜索面板（未激活状态） -->
-            <div class="search-placeholder" id="searchPlaceholder" 
-                 role="button" 
-                 aria-label="点击激活搜索框"
-                 title="点击开始搜索"></div>
-            
+            <div class="search-placeholder" id="searchPlaceholder" role="button" aria-label="点击激活搜索框" title="点击开始搜索">
+            </div>
+
             <!-- 完整搜索框（激活后显示） -->
             <div class="search-container" id="searchContainer">
                 <!-- 搜索引擎切换区域 -->
                 <div class="engine-trigger" id="engineTrigger" aria-haspopup="true" aria-expanded="false">
                     <!-- 当前引擎图标 -->
-                    <div class="engine-icon-wrapper" id="engineIconWrapper" 
-                         role="button"
-                         aria-label="切换搜索引擎"
-                         title="切换搜索引擎">
+                    <div class="engine-icon-wrapper" id="engineIconWrapper" role="button" aria-label="切换搜索引擎"
+                        title="切换搜索引擎">
                         <i class="fab fa-google" id="engineIcon" aria-hidden="true"></i>
                     </div>
-                    
+
                     <!-- 搜索引擎下拉面板 -->
                     <div class="engine-panel" id="enginePanel" role="menu" aria-label="搜索引擎选择">
                         <!-- 通用搜索引擎组 -->
                         <div class="engine-group-title" role="presentation">通用搜索</div>
-                        <div class="engine-item active" 
-                             role="menuitemradio" 
-                             aria-checked="true"
-                             data-engine="google" 
-                             data-icon="fab fa-google" 
-                             data-url="https://www.google.com/search?q=">
+                        <div class="engine-item active" role="menuitemradio" aria-checked="true" data-engine="google"
+                            data-icon="fab fa-google" data-url="https://www.google.com/search?q=">
                             <i class="fab fa-google" aria-hidden="true"></i>
                             <span>Google</span>
                         </div>
-                        <div class="engine-item" 
-                             role="menuitemradio" 
-                             aria-checked="false"
-                             data-engine="bing" 
-                             data-icon="fas fa-search" 
-                             data-url="https://cn.bing.com/search?q=">
+                        <div class="engine-item" role="menuitemradio" aria-checked="false" data-engine="bing"
+                            data-icon="fas fa-search" data-url="https://cn.bing.com/search?q=">
                             <i class="fas fa-search" aria-hidden="true"></i>
                             <span>必应</span>
                         </div>
-                        <div class="engine-item" 
-                             role="menuitemradio" 
-                             aria-checked="false"
-                             data-engine="baidu" 
-                             data-icon="fas fa-paw" 
-                             data-url="https://www.baidu.com/s?wd=">
+                        <div class="engine-item" role="menuitemradio" aria-checked="false" data-engine="baidu"
+                            data-icon="fas fa-paw" data-url="https://www.baidu.com/s?wd=">
                             <i class="fas fa-paw" aria-hidden="true"></i>
                             <span>百度</span>
                         </div>
-                        <div class="engine-item" 
-                             role="menuitemradio" 
-                             aria-checked="false"
-                             data-engine="yandex" 
-                             data-icon="fab fa-yandex" 
-                             data-url="https://yandex.com/search/?text=">
+                        <div class="engine-item" role="menuitemradio" aria-checked="false" data-engine="yandex"
+                            data-icon="fab fa-yandex" data-url="https://yandex.com/search/?text=">
                             <i class="fab fa-yandex" aria-hidden="true"></i>
                             <span>Yandex</span>
                         </div>
                         <!-- 标题占位 -->
                         <div class="engine-break-space"></div>
-                        <div class="engine-item" 
-                             role="menuitemradio" 
-                             aria-checked="false"
-                             data-engine="sogou" 
-                             data-icon="fas fa-dragon" 
-                             data-url="https://www.sogou.com/web?query=">
+                        <div class="engine-item" role="menuitemradio" aria-checked="false" data-engine="sogou"
+                            data-icon="fas fa-dragon" data-url="https://www.sogou.com/web?query=">
                             <i class="fas fa-dragon" aria-hidden="true"></i>
                             <span>搜狗</span>
                         </div>
@@ -88,41 +66,25 @@
                         <div class="engine-break"></div>
                         <!-- 平台搜索引擎组 -->
                         <div class="engine-group-title" role="presentation">平台搜索</div>
-                        <div class="engine-item" 
-                             role="menuitemradio" 
-                             aria-checked="false"
-                             data-engine="bilibili" 
-                             data-icon="fab fa-bilibili" 
-                             data-url="https://search.bilibili.com/all?keyword=">
+                        <div class="engine-item" role="menuitemradio" aria-checked="false" data-engine="bilibili"
+                            data-icon="fab fa-bilibili" data-url="https://search.bilibili.com/all?keyword=">
                             <i class="fab fa-bilibili" aria-hidden="true"></i>
                             <span>哔哩哔哩</span>
                         </div>
-                        <div class="engine-item" 
-                             role="menuitemradio" 
-                             aria-checked="false"
-                             data-engine="youtube" 
-                             data-icon="fab fa-youtube" 
-                             data-url="https://www.youtube.com/results?search_query=">
+                        <div class="engine-item" role="menuitemradio" aria-checked="false" data-engine="youtube"
+                            data-icon="fab fa-youtube" data-url="https://www.youtube.com/results?search_query=">
                             <i class="fab fa-youtube" aria-hidden="true"></i>
                             <span>YouTube</span>
                         </div>
-                        <div class="engine-item" 
-                             role="menuitemradio" 
-                             aria-checked="false"
-                             data-engine="github" 
-                             data-icon="fab fa-github" 
-                             data-url="https://github.com/search?q=">
+                        <div class="engine-item" role="menuitemradio" aria-checked="false" data-engine="github"
+                            data-icon="fab fa-github" data-url="https://github.com/search?q=">
                             <i class="fab fa-github" aria-hidden="true"></i>
                             <span>Github</span>
                         </div>
                         <!-- 标题占位 -->
                         <div class="engine-break-space"></div>
-                        <div class="engine-item" 
-                             role="menuitemradio" 
-                             aria-checked="false"
-                             data-engine="zhihu" 
-                             data-icon="fab fa-zhihu" 
-                             data-url="https://www.zhihu.com/search?q=">
+                        <div class="engine-item" role="menuitemradio" aria-checked="false" data-engine="zhihu"
+                            data-icon="fab fa-zhihu" data-url="https://www.zhihu.com/search?q=">
                             <i class="fab fa-zhihu" aria-hidden="true"></i>
                             <span>知乎</span>
                         </div>
@@ -130,23 +92,11 @@
                 </div>
 
                 <!-- 搜索输入框 -->
-                <input type="text" 
-                       class="search-input" 
-                       id="searchInput" 
-                       placeholder="请输入搜索内容..." 
-                       autocomplete="off" 
-                       autocorrect="off" 
-                       autocapitalize="off" 
-                       spellcheck="false"
-                       aria-label="搜索输入框"
-                       enterkeyhint="search">
-                
+                <input type="text" class="search-input" id="searchInput" placeholder="请输入搜索内容..." autocomplete="off"
+                    autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="搜索输入框" enterkeyhint="search">
+
                 <!-- 搜索按钮 -->
-                <button class="search-btn" 
-                        id="searchBtn" 
-                        type="button"
-                        aria-label="执行搜索"
-                        title="搜索">
+                <button class="search-btn" id="searchBtn" type="button" aria-label="执行搜索" title="搜索">
                     <i class="fas fa-search" aria-hidden="true"></i>
                 </button>
             </div>
@@ -158,29 +108,120 @@
             <div class="category-row">
                 <div class="category-title">视频类</div>
                 <div class="card-group">
-                    <a href="https://www.youtube.com" 
-                       target="_blank" 
-                       class="card"
-                       rel="noopener noreferrer"
-                       aria-label="访问YouTube">
+                    <!-- 国外 -->
+                    <a href="https://www.youtube.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问YouTube">
                         <i class="fab fa-youtube card-icon" aria-hidden="true"></i>
                         <span class="card-text">YouTube</span>
                     </a>
-                    <a href="https://www.bilibili.com" 
-                       target="_blank" 
-                       class="card"
-                       rel="noopener noreferrer"
-                       aria-label="访问哔哩哔哩">
+                    <a href="https://www.netflix.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Netflix">
+                        <i class="fab fa-netflix card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Netflix</span>
+                    </a>
+                    <a href="https://www.twitch.tv" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Twitch">
+                        <i class="fab fa-twitch card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Twitch</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://www.bilibili.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问哔哩哔哩">
                         <i class="fab fa-bilibili card-icon" aria-hidden="true"></i>
                         <span class="card-text">bilibili</span>
                     </a>
-                    <a href="https://www.tiktok.com" 
-                       target="_blank" 
-                       class="card"
-                       rel="noopener noreferrer"
-                       aria-label="访问TikTok">
+                    <a href="https://www.douyin.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问抖音">
                         <i class="fab fa-tiktok card-icon" aria-hidden="true"></i>
-                        <span class="card-text">TikTok</span>
+                        <span class="card-text">抖音</span>
+                    </a>
+                    <a href="https://v.qq.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问腾讯视频">
+                        <i class="fas fa-clapperboard card-icon" aria-hidden="true"></i>
+                        <span class="card-text">腾讯视频</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 社交类网站 -->
+            <div class="category-row">
+                <div class="category-title">社交类</div>
+                <div class="card-group">
+                    <!-- 国外 -->
+                    <a href="https://www.facebook.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Facebook">
+                        <i class="fab fa-facebook card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Instagram">
+                        <i class="fab fa-instagram card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Instagram</span>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Twitter(X)">
+                        <i class="fab fa-x-twitter card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Twitter(X)</span>
+                    </a>
+                    <a href="https://telegram.org" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Telegram">
+                        <i class="fab fa-telegram card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Telegram</span>
+                    </a>
+                    <a href="https://www.whatsapp.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问WhatsApp">
+                        <i class="fab fa-whatsapp card-icon" aria-hidden="true"></i>
+                        <span class="card-text">WhatsApp</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://www.zhihu.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问知乎">
+                        <i class="fas fa-circle-question card-icon" aria-hidden="true"></i>
+                        <span class="card-text">知乎</span>
+                    </a>
+                    <a href="https://www.xiaohongshu.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问小红书">
+                        <i class="fas fa-book-open card-icon" aria-hidden="true"></i>
+                        <span class="card-text">小红书</span>
+                    </a>
+                    <a href="https://weibo.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问微博">
+                        <i class="fab fa-weibo card-icon" aria-hidden="true"></i>
+                        <span class="card-text">微博</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 音乐类网站 -->
+            <div class="category-row">
+                <div class="category-title">音乐类</div>
+                <div class="card-group">
+                    <!-- 国外 -->
+                    <a href="https://open.spotify.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Spotify">
+                        <i class="fab fa-spotify card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Spotify</span>
+                    </a>
+                    <a href="https://music.apple.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Apple Music">
+                        <i class="fab fa-apple card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Apple Music</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://music.163.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问网易云音乐">
+                        <i class="fas fa-headphones card-icon" aria-hidden="true"></i>
+                        <span class="card-text">网易云音乐</span>
+                    </a>
+                    <a href="https://y.qq.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问QQ音乐">
+                        <i class="fab fa-qq card-icon" aria-hidden="true"></i>
+                        <span class="card-text">QQ音乐</span>
+                    </a>
+                    <a href="https://www.kugou.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问酷狗音乐">
+                        <i class="fas fa-guitar card-icon" aria-hidden="true"></i>
+                        <span class="card-text">酷狗音乐</span>
                     </a>
                 </div>
             </div>
@@ -189,43 +230,211 @@
             <div class="category-row">
                 <div class="category-title">工具类</div>
                 <div class="card-group">
-                    <a href="https://github.com" 
-                       target="_blank" 
-                       class="card"
-                       rel="noopener noreferrer"
-                       aria-label="访问GitHub">
+                    <!-- 开发工具 -->
+                    <a href="https://github.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问GitHub">
                         <i class="fab fa-github card-icon" aria-hidden="true"></i>
-                        <span class="card-text">github</span>
+                        <span class="card-text">GitHub</span>
+                    </a>
+                    <a href="https://www.google.com/docs" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Google文档">
+                        <i class="fab fa-google card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Google文档</span>
+                    </a>
+                    <a href="https://www.notion.so" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Notion">
+                        <i class="fas fa-square-n card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Notion</span>
+                    </a>
+                    <!-- 办公工具 -->
+                    <a href="https://www.office.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Microsoft 365">
+                        <i class="fab fa-microsoft card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Microsoft 365</span>
+                    </a>
+                    <a href="https://www.dingtalk.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问钉钉">
+                        <i class="fas fa-bell card-icon" aria-hidden="true"></i>
+                        <span class="card-text">钉钉</span>
+                    </a>
+                    <a href="https://docs.qq.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问腾讯文档">
+                        <i class="fas fa-file-word card-icon" aria-hidden="true"></i>
+                        <span class="card-text">腾讯文档</span>
                     </a>
                 </div>
             </div>
 
-            <!-- 常用类网站 -->
+            <!-- 购物类网站 -->
             <div class="category-row">
-                <div class="category-title">常用类</div>
+                <div class="category-title">购物类</div>
                 <div class="card-group">
-                    <a href="https://www.facebook.com" 
-                       target="_blank" 
-                       class="card"
-                       rel="noopener noreferrer"
-                       aria-label="访问Facebook">
-                        <i class="fab fa-facebook card-icon" aria-hidden="true"></i>
-                        <span class="card-text">facebook</span>
+                    <!-- 国外 -->
+                    <a href="https://www.amazon.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Amazon">
+                        <i class="fab fa-amazon card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Amazon</span>
+                    </a>
+                    <a href="https://www.ebay.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问eBay">
+                        <i class="fas fa-store card-icon" aria-hidden="true"></i>
+                        <span class="card-text">eBay</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://www.taobao.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问淘宝">
+                        <i class="fas fa-cart-shopping card-icon" aria-hidden="true"></i>
+                        <span class="card-text">淘宝</span>
+                    </a>
+                    <a href="https://www.jd.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问京东">
+                        <i class="fas fa-truck-fast card-icon" aria-hidden="true"></i>
+                        <span class="card-text">京东</span>
+                    </a>
+                    <a href="https://www.meituan.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问美团">
+                        <i class="fas fa-utensils card-icon" aria-hidden="true"></i>
+                        <span class="card-text">美团</span>
                     </a>
                 </div>
             </div>
 
-            <!-- 其他类网站 -->
+            <!-- 出行/生活类 -->
             <div class="category-row">
-                <div class="category-title">其他类</div>
+                <div class="category-title">出行/生活类</div>
                 <div class="card-group">
-                    <a href="https://www.youtube.com" 
-                       target="_blank" 
-                       class="card"
-                       rel="noopener noreferrer"
-                       aria-label="访问YouTube">
-                        <i class="fab fa-youtube card-icon" aria-hidden="true"></i>
-                        <span class="card-text">YouTube</span>
+                    <!-- 国外 -->
+                    <a href="https://maps.google.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Google Maps">
+                        <i class="fab fa-google-maps card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Google Maps</span>
+                    </a>
+                    <a href="https://www.airbnb.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Airbnb">
+                        <i class="fas fa-house-chimney card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Airbnb</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://amap.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问高德地图">
+                        <i class="fas fa-map-location-dot card-icon" aria-hidden="true"></i>
+                        <span class="card-text">高德地图</span>
+                    </a>
+                    <a href="https://www.didiglobal.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问滴滴出行">
+                        <i class="fas fa-taxi card-icon" aria-hidden="true"></i>
+                        <span class="card-text">滴滴出行</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 云存储类 -->
+            <div class="category-row">
+                <div class="category-title">云存储类</div>
+                <div class="card-group">
+                    <!-- 国外 -->
+                    <a href="https://drive.google.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Google Drive">
+                        <i class="fab fa-google-drive card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Google Drive</span>
+                    </a>
+                    <a href="https://www.dropbox.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Dropbox">
+                        <i class="fab fa-dropbox card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Dropbox</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://pan.baidu.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问百度网盘">
+                        <i class="fas fa-cloud card-icon" aria-hidden="true"></i>
+                        <span class="card-text">百度网盘</span>
+                    </a>
+                    <a href="https://www.aliyundrive.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问阿里云盘">
+                        <i class="fas fa-database card-icon" aria-hidden="true"></i>
+                        <span class="card-text">阿里云盘</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 游戏类 -->
+            <div class="category-row">
+                <div class="category-title">游戏类</div>
+                <div class="card-group">
+                    <!-- 国外 -->
+                    <a href="https://store.steampowered.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Steam">
+                        <i class="fab fa-steam card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Steam</span>
+                    </a>
+                    <a href="https://www.playstation.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问PlayStation">
+                        <i class="fab fa-playstation card-icon" aria-hidden="true"></i>
+                        <span class="card-text">PlayStation</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://game.qq.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问腾讯游戏">
+                        <i class="fas fa-gamepad card-icon" aria-hidden="true"></i>
+                        <span class="card-text">腾讯游戏</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 邮箱类 -->
+            <div class="category-row">
+                <div class="category-title">邮箱类</div>
+                <div class="card-group">
+                    <!-- 国外 -->
+                    <a href="https://mail.google.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Gmail">
+                        <i class="fab fa-google card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Gmail</span>
+                    </a>
+                    <a href="https://outlook.live.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问Outlook">
+                        <i class="fab fa-microsoft card-icon" aria-hidden="true"></i>
+                        <span class="card-text">Outlook</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://mail.qq.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问QQ邮箱">
+                        <i class="fab fa-qq card-icon" aria-hidden="true"></i>
+                        <span class="card-text">QQ邮箱</span>
+                    </a>
+                    <a href="https://mail.163.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问网易邮箱">
+                        <i class="fas fa-envelope card-icon" aria-hidden="true"></i>
+                        <span class="card-text">网易邮箱</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 资讯类 -->
+            <div class="category-row">
+                <div class="category-title">资讯类</div>
+                <div class="card-group">
+                    <!-- 国外 -->
+                    <a href="https://www.bbc.com/news" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问BBC News">
+                        <i class="fas fa-globe card-icon" aria-hidden="true"></i>
+                        <span class="card-text">BBC News</span>
+                    </a>
+                    <a href="https://www.cnn.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问CNN">
+                        <i class="fas fa-tower-broadcast card-icon" aria-hidden="true"></i>
+                        <span class="card-text">CNN</span>
+                    </a>
+                    <!-- 国内 -->
+                    <a href="https://www.toutiao.com" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问今日头条">
+                        <i class="fas fa-newspaper card-icon" aria-hidden="true"></i>
+                        <span class="card-text">今日头条</span>
+                    </a>
+                    <a href="https://www.thepaper.cn" target="_blank" class="card" rel="noopener noreferrer"
+                        aria-label="访问澎湃新闻">
+                        <i class="fas fa-pen-to-square card-icon" aria-hidden="true"></i>
+                        <span class="card-text">澎湃新闻</span>
                     </a>
                 </div>
             </div>
@@ -235,4 +444,5 @@
     <!-- 引入JavaScript文件 -->
     <script src="script.js"></script>
 </body>
+
 </html>
