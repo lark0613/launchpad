@@ -42,7 +42,7 @@ body {
 /* 搜索框外层容器 */
 .search-wrapper {
     width: 100%;                 /* 宽度100% */
-    max-width: 800px;            /* 最大宽度限制 */
+    max-width: 500px;            /* 最大宽度限制 */
     position: relative;          /* 相对定位，用于内部绝对定位元素 */
 }
 
@@ -52,7 +52,7 @@ body {
     height: 56px;                /* 固定高度 */
     
     /* 毛玻璃效果 */
-    background: rgba(255, 255, 255, 0.10);      /* 半透明白色背景 */
+    background: rgba(255, 255, 255, 0.05);      /* 半透明白色背景 */
     backdrop-filter: blur(8px);                 /* 背景模糊 */
     
     /* 边框和圆角 */
@@ -85,7 +85,7 @@ body {
     /* 毛玻璃效果 */
     background: rgba(255, 255, 255, 0.50);      /* 半透明白色背景 */
     backdrop-filter: blur(12px);                /* 更强的背景模糊 */
-    
+
     /* 边框和圆角 */
     border-radius: 28px;                         /* 完全圆角 */
     
@@ -147,7 +147,7 @@ body {
     position: absolute;          /* 绝对定位 */
     top: 100%;                   /* 位于触发容器底部 */
     left: 0;                     /* 左对齐 */
-    width: 300px;                /* 固定宽度 */
+    width: 470px;                /* 固定宽度 */
     
     /* 毛玻璃效果 */
     background: rgba(255, 255, 255, 0.95);      /* 接近白色半透明背景 */
@@ -160,7 +160,12 @@ body {
     
     /* 布局方式 */
     display: flex;               /* 弹性布局 */
-    flex-direction: column;      /* 垂直排列 */
+
+    /* 以下两为自己设置 */
+    flex-direction: row;         /* 改为横向排列 */
+    flex-wrap: wrap;             /* 允许换行 */
+
+    /* flex-direction: column; */      /* 垂直排列 */
     gap: 4px;                    /* 子元素间距 */
     padding: 12px;               /* 内边距 */
     
@@ -184,11 +189,28 @@ body {
     pointer-events: auto;        /* 响应鼠标事件 */
 }
 
+/* 创建一个占满整行的空元素作为断点 */
+.engine-break {
+    flex-basis: 100%; /* 强制占满一行 */
+    height: 0;        /* 高度为0，不可见 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 创建一个占69px的空元素作为占位 */
+.engine-break-space {
+    width: 69px;
+    height: 0;        /* 高度为0，不可见 */
+    margin: 0;
+    padding: 0;
+}
+
+
 /* 引擎分组标题 */
 .engine-group-title {
     font-size: 13px;             /* 较小字体 */
     color: #888;                 /* 灰色文字 */
-    padding: 4px 8px;            /* 内边距 */
+    padding: 7px 8px;            /* 内边距 */
     margin: 4px 0;               /* 上下外边距 */
     font-weight: 500;            /* 中等字重 */
 }
@@ -196,6 +218,7 @@ body {
 /* 引擎选项样式 */
 .engine-item {
     display: flex;               /* 弹性布局 */
+    height: 40px;               /* 固定高度 */
     align-items: center;         /* 垂直居中 */
     gap: 8px;                    /* 图标和文字间距 */
     padding: 8px 12px;           /* 内边距 */
@@ -221,7 +244,7 @@ body {
 
 /* 引擎选项悬停效果 */
 .engine-item:hover:not(.active) {
-    background: #f5f7fa;         /* 浅灰色背景 */
+    background: #e4ebf7;         /* 浅灰色背景 */
 }
 
 /* 引擎选项中的图标 */
